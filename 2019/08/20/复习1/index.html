@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>快速幂 · null</title>
+    <title>复习1 · null</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Bombing Big Watermelon</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">快速幂</a>
+                <a href="#" class="post-name">复习1</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            快速幂
+            复习1
             <!-- 404 -->
             
         </h1>
@@ -264,20 +264,14 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "编程题">编程题</a>
-    
-</div>
-                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">146</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">521</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/08/11</span>
+                    <span class="post-intro-time">2019/08/20</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,8 +395,77 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><p>比如2的11次方可以算作 2^(1011) = 2^(8)<em>2^(2)</em>2^(1)<br>用一个临时变量存储当前的结果，每当遇到指数当前位为1的情况就和当前的2^(k)相乘，最后返回结果<br>k用另外一个临时变量保存，每次和他自己相乘</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def Power(self, base, exponent):</span><br><span class="line">        if exponent == 0:</span><br><span class="line">            return 1</span><br><span class="line">        </span><br><span class="line">        exp = exponent    #辅助变量</span><br><span class="line">        result = 1</span><br><span class="line">        temp = base</span><br><span class="line">        if exp &lt; 0:</span><br><span class="line">            if base == 0:</span><br><span class="line">                raise RuntimeError(&apos;valueError&apos;)</span><br><span class="line">            exp = - exp</span><br><span class="line">        </span><br><span class="line">        while exp != 0:</span><br><span class="line">            if exp &amp; 1 == 1:</span><br><span class="line">                result *= temp</span><br><span class="line">            temp *= temp</span><br><span class="line">            exp = exp &gt;&gt; 1</span><br><span class="line">            </span><br><span class="line">        if exponent &lt; 0:</span><br><span class="line">            return 1/result</span><br><span class="line">        </span><br><span class="line">        else:</span><br><span class="line">            return result</span><br></pre></td></tr></table></figure>
+        <h1 id="python语言特性"><a href="#python语言特性" class="headerlink" title="python语言特性"></a>python语言特性</h1><h5 id="1-可变类型和不可变类型"><a href="#1-可变类型和不可变类型" class="headerlink" title="1 可变类型和不可变类型"></a>1 可变类型和不可变类型</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>可变类型</th>
+<th>不可变类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dict</td>
+<td>tuple</td>
+</tr>
+<tr>
+<td>set</td>
+<td>numbers</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h5 id="2-参数默认值的变化"><a href="#2-参数默认值的变化" class="headerlink" title="2 参数默认值的变化"></a>2 参数默认值的变化</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def f(l=[]):</span><br><span class="line">	print(l)</span><br><span class="line">	l.append(2)</span><br><span class="line">	l.append(5)</span><br><span class="line">	</span><br><span class="line">f()	#[]</span><br><span class="line">f()	#[2,5] &lt;-----在这个地方可以发现默认参数l已经指向了[2,5]</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="3-staticmethod-amp-classmethod"><a href="#3-staticmethod-amp-classmethod" class="headerlink" title="3 @staticmethod &amp; @classmethod"></a>3 @staticmethod &amp; @classmethod</h5><p>python中有三个方法：</p>
+<ol>
+<li>实体方法    </li>
+<li>静态方法(staticmethod)</li>
+<li>类方法(classmethod)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class A:</span><br><span class="line">	def entity_method(self):	#实体方法，传self参数</span><br><span class="line">		......</span><br><span class="line">	</span><br><span class="line">	@staticmethod				</span><br><span class="line">	def static_method():		#静态方法</span><br><span class="line">		......</span><br><span class="line">		</span><br><span class="line">	@classmethod				</span><br><span class="line">	def class_method(cls):		#类方法,传cls参数</span><br><span class="line">		......</span><br></pre></td></tr></table></figure>
+<p>三种方法的使用：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>/</th>
+<th>实例方法</th>
+<th>类方法</th>
+<th>静态方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a = A()</td>
+<td>a.entity_method()</td>
+<td>a.class_method()</td>
+<td>a.static_method()</td>
+</tr>
+<tr>
+<td>A</td>
+<td>不能用</td>
+<td>A.class_method()</td>
+<td>A.static_method()</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h5 id="4-类变量和实例变量"><a href="#4-类变量和实例变量" class="headerlink" title="4 类变量和实例变量"></a>4 类变量和实例变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class A:</span><br><span class="line">	num_of_instance = 0		#类变量</span><br><span class="line">	def __init__(self, name):</span><br><span class="line">		self.name = name		#这个就是实例变量</span><br><span class="line">		A.num_of_instance += 1	#注意是 A.类变量名 的用法</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="5-单下划线和双下划线"><a href="#5-单下划线和双下划线" class="headerlink" title="5 单下划线和双下划线"></a>5 单下划线和双下划线</h5><p><code>__func__</code>:一种约定，python内部的名字，和用户自己起的名字进行区分(<code>__init__</code>, <code>__del__</code>,<code>__call__</code>)<br><code>_func</code>:一种约定，用来指定变量私有，不能用<code>from module import *</code>来进行导入</p>
+<h2 id="func-解析器用-classname-func来对这个名字进行替换，以便于区分其他类（与子类）相同的命名"><a href="#func-解析器用-classname-func来对这个名字进行替换，以便于区分其他类（与子类）相同的命名" class="headerlink" title="__func: 解析器用 _classname__func来对这个名字进行替换，以便于区分其他类（与子类）相同的命名"></a><code>__func</code>: 解析器用 <code>_classname__func</code>来对这个名字进行替换，以便于区分其他类（与子类）相同的命名</h2><h5 id="6-迭代器和生成器"><a href="#6-迭代器和生成器" class="headerlink" title="6 迭代器和生成器"></a>6 迭代器和生成器</h5><p>问题：将列表生成式中的[]改成()之后数据结构是否发生改变?<br>ans: 是，从列表编程生成器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [x for x in range(10)]</span><br><span class="line">print(a)	#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"></span><br><span class="line">b = (x for x in range(10))</span><br><span class="line">print(b)	#&lt;generator object &lt;genexpr&gt; at 0x000001B1FBEAC678&gt;</span><br></pre></td></tr></table></figure>
+<p>为什么：通过列表生成式，可以直接创建一个列表，但是受到内存的影响，列表容量有限。同时，创建一个包含百万元素的列表时，我们可能只需要访问前面的几个元素，后面的元素所占有的空间都是浪费的。所以在python中：可以采用生成器</p>
+<p><strong>生成器</strong><br>生成器是一种特殊的程序，可以被用作控制循环的迭代行为，<strong>生成器是迭代器的一种</strong>。<a href="https://www.cnblogs.com/wj-1314/p/8490822.html" title="生成器和迭代器" target="_blank" rel="noopener">生成器和迭代器</a></p>
+<hr>
+
     </article>
     <!-- license  -->
     
@@ -411,12 +474,17 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/08/20/复习1/" title= "复习1">
-                    <div class="nextTitle">复习1</div>
+                <a href= "/2019/08/20/网络/" title= "网络">
+                    <div class="nextTitle">网络</div>
                 </a>
             
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/08/11/快速幂/" title= "快速幂">
+                    <div class="prevTitle">快速幂</div>
+                </a>
             
         </li>
     </ul>
@@ -527,7 +595,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速幂"><span class="toc-number">1.</span> <span class="toc-text">快速幂</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python语言特性"><span class="toc-number">1.</span> <span class="toc-text">python语言特性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-可变类型和不可变类型"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">1 可变类型和不可变类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-参数默认值的变化"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">2 参数默认值的变化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-staticmethod-amp-classmethod"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">3 @staticmethod &amp; @classmethod</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-类变量和实例变量"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">4 类变量和实例变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-单下划线和双下划线"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">5 单下划线和双下划线</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#func-解析器用-classname-func来对这个名字进行替换，以便于区分其他类（与子类）相同的命名"><span class="toc-number">1.1.</span> <span class="toc-text">__func: 解析器用 _classname__func来对这个名字进行替换，以便于区分其他类（与子类）相同的命名</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#6-迭代器和生成器"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">6 迭代器和生成器</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

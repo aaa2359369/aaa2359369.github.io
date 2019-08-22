@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="轰炸大西瓜">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="轰炸大西瓜">
+    
+    <meta name="keywords" content="Hexo,轰炸大西瓜">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>网络 · null</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Bombing Big Watermelon</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">网络</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Bombing Big Watermelon</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            网络
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "计算机网络">计算机网络</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">2.8k</span>Reading time: <span class="post-count reading-time">10 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/08/20</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="OSI与TCP-IP各层的结构与功能-都有哪些协议"><a href="#OSI与TCP-IP各层的结构与功能-都有哪些协议" class="headerlink" title="OSI与TCP/IP各层的结构与功能,都有哪些协议"></a>OSI与TCP/IP各层的结构与功能,都有哪些协议</h1><h3 id="五层协议的体系结构"><a href="#五层协议的体系结构" class="headerlink" title="五层协议的体系结构"></a>五层协议的体系结构</h3><p>———-假装这里有图</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>OSI的体系结构</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用层</td>
+</tr>
+<tr>
+<td>表示层</td>
+</tr>
+<tr>
+<td>会话层</td>
+</tr>
+<tr>
+<td>运输层</td>
+</tr>
+<tr>
+<td>网络层</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+</tr>
+<tr>
+<td>物理层</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>TCP/IP的体系结构</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用层 : FTP、SMTP、TELNET</td>
+</tr>
+<tr>
+<td>运输层 :TCP、UDP</td>
+</tr>
+<tr>
+<td>网际层（网络层） : IP</td>
+</tr>
+<tr>
+<td>网络接口层</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>五层协议的体系结构</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用层</td>
+</tr>
+<tr>
+<td>运输层</td>
+</tr>
+<tr>
+<td>网络层</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+</tr>
+<tr>
+<td>物理层</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="网络体系结构和协议"><a href="#网络体系结构和协议" class="headerlink" title="网络体系结构和协议"></a>网络体系结构和协议</h2><h3 id="1-应用层"><a href="#1-应用层" class="headerlink" title="1 应用层"></a>1 应用层</h3><p>应用层的任务是<strong>通过应用进程之间的交互来完成特定的网络应用</strong>，应用层协议定义的是<strong>应用进程间的通信和交互规则</strong>，不同的网络应用应该使用不同的应用层协议，比如：DNS、HTTP、SMTP<br>应用层之间交互的数据单元：<strong>报文</strong></p>
+<h3 id="2-运输层"><a href="#2-运输层" class="headerlink" title="2 运输层"></a>2 运输层</h3><p><strong>运输层的主要任务就是负责向 两台主机进程之间 的通信提供通用的数据传输服务</strong>。应用进程利用该服务传送应用层报文。<br>运输层的主要协议：</p>
+<ol>
+<li><strong>运输控制协议TCP</strong>：提供<strong>面向连接</strong>的<strong>可靠</strong>的数据传输服务</li>
+<li><strong>用户数据协议UDP</strong>：提供<strong>无连接</strong>的，尽最大努力的数据传输服务（<strong>不保证数据传输可靠性</strong>）</li>
+</ol>
+<p><strong>TCP的特点(x5)</strong>：</p>
+<ul>
+<li>TCP是<strong>面向连接</strong>的</li>
+<li>每一条TCP连接<strong>只能有两个端点</strong>，每一条TCP连接只能是<strong>点对点</strong>的</li>
+<li>TCP<strong>提供可靠交付</strong>的服务。通过TCP连接传送的数据，无差错、不丢失、不重复、按序到达</li>
+<li>TCP提供<strong>全双工</strong>通信，TCP允许通信双方在任何时候都能够发送数据。TCP连接的两端都设有发送缓存和接收缓存，用来存放双方的通信。</li>
+<li><strong>面向字节流</strong>。TCP中的<strong>流指的是流入进程或者从进程流出的字节序列</strong>。“面向字节流”的意思：虽然应用程序和TCP的交互是一个一个的数据块（大小不等），但是TCP把应用程序浇下来的数据看作一连串<strong>无结构的字节流</strong></li>
+</ul>
+<blockquote>
+<p>所谓的端点就是套接字socket: (ip:port)</p>
+</blockquote>
+<p><strong>UDP的特点(x6)</strong></p>
+<ul>
+<li>UDP是<strong>无连接</strong>的</li>
+<li>UDP使用<strong>尽可能最大努力</strong>交付，（不保证可靠交付），因此不需要维持复杂的连接状态</li>
+<li>UDP是<strong>面向报文</strong>的</li>
+<li>UDP<strong>没有拥塞控制</strong>，因此网络出现拥塞不会使源主机的发送速率降低</li>
+<li>UDP<strong>支持一对一、一对多、多对多、多对一的交互通信</strong></li>
+<li>UDP的<strong>首部开销小</strong>，只有8个字节，TCP有20个字节</li>
+</ul>
+<hr>
+<h3 id="3-网络层"><a href="#3-网络层" class="headerlink" title="3 网络层"></a>3 网络层</h3><p>网络层负责<strong>为分组交换网上的不同主机提供通信服务</strong>。在发送数据的时候，网络层把运输层产生的报文段或用户数据报封装成<strong>分组</strong>或<strong>包</strong>进行传送。在TCP/IP协议中，由于网络层使用IP协议，因此分组也叫ip数据报，简称<strong>数据报</strong>。<br>网络层的另外一个任务就是选择合适的路由，使源主机运输层所传下来的分株，能够通过网络层中的路由器找到目的主机。<br>互联网是一个很大的网络，它通过大量的异构网络通过路由器进行相互连接，因特网主要的网络层协议是无连接的网际协议IP和其他的路由选择协议，所以网络层又叫做IP层或者是网际层。</p>
+<hr>
+<h3 id="4-数据链路层"><a href="#4-数据链路层" class="headerlink" title="4 数据链路层"></a>4 数据链路层</h3><p>数据链路层简称链路层，两台主机之间的传输总是在一段一段的链路上传送的，这就需要使用专门的链路层协议。数据链路层将网络层所交下来的IP数据报组装成<strong>帧</strong>，在两个响铃的节点之间的链路上进行传送帧，每一帧都包含有数据和控制信息。<br>控制信息的作用：1：控制信息能够让接收端知道一帧从哪一个比特开始到哪一个比特结束。从而<strong>获取数据</strong>。2：控制信息可以<strong>检测收到的帧是否有错误，同时可以进行纠错。</strong></p>
+<hr>
+<h3 id="5-物理层"><a href="#5-物理层" class="headerlink" title="5 物理层"></a>5 物理层</h3><p>在物理层上所传输的数据单位是比特，物理层的作用是实现相邻计算机节点之间比特流的透明传输，尽可能屏蔽掉具体传输介质和物理设备的差异。</p>
+<hr>
+<h1 id="TCP三次握手和四次挥手"><a href="#TCP三次握手和四次挥手" class="headerlink" title="TCP三次握手和四次挥手"></a>TCP三次握手和四次挥手</h1><h3 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h3><ol>
+<li>client发送  <code>SYN=1, seq=x</code></li>
+<li>server发送  <code>SYN=1， ACK=1, seq=y, ack=x+1</code></li>
+<li>client发送  <code>ACK=1，seq=x+1, ack=y+1</code></li>
+</ol>
+<p>问题1：为什么还要发送一个请求?<br>答：为了防止已经失效的连接请求报文突然又传送到了B，B会误以为A又请求一次连接，并向A确认，而A不会对其进行回复，因此导致B的网络资源被浪费。</p>
+<p>问题2：为什么要传回SYN？<br>答：接收端传回发送端所发送的SYN是为了钙塑发送端，我接收的信息确实就是你所发送的信息。</p>
+<p>问题3： 传了SYN为什么还要传ACK？<br>答:双方必须保证两者互相发送信息都无误，传了SYN，说明发送方到接收方的通道没有问题，而接收方到发送方还需要ACK信号进行验证。</p>
+<h3 id="TCP的四次挥手"><a href="#TCP的四次挥手" class="headerlink" title="TCP的四次挥手"></a>TCP的四次挥手</h3><ol>
+<li>A发送 <code>FIN=1, seq=u</code> u是A前面已经传输过的数据的最后一个字节序号加上1</li>
+<li>B发送 <code>ACK=1, seq=v, ack=u+1</code> v是B前面已经传输过的最后一个字节序号加上1</li>
+<li>B发送 <code>FIN=1, ACK=1, seq=w, ack=u+1</code> w是由于在半关闭的情况下，B继续发送了数据，同时确认号必须重复上次发送的序号</li>
+<li>A发送 <code>ACK=1, seq=u+1, ack=w+1</code></li>
+</ol>
+<hr>
+<h1 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>是否面向连接</th>
+<th>是否可靠传输</th>
+<th>传输形式</th>
+<th>传输效率</th>
+<th>所需资源</th>
+<th>应用场景</th>
+<th>首部字节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP</td>
+<td>是</td>
+<td>是</td>
+<td>字节流</td>
+<td>低</td>
+<td>多</td>
+<td>要求通信可靠（比如邮件）</td>
+<td>20~60</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>否</td>
+<td>否</td>
+<td>数据报文段</td>
+<td>高</td>
+<td>少</td>
+<td>要求速度快（域名转换、视频直播）</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="TCP协议如何保证可靠传输"><a href="#TCP协议如何保证可靠传输" class="headerlink" title="TCP协议如何保证可靠传输"></a>TCP协议如何保证可靠传输</h1><ol>
+<li>应用程序被分割成TCP认为最适合发送的数据块。</li>
+<li>TCP会对发送的包进行编号，接收方会对接收到的包进行排序，以保证接受得到的数据为有序的。</li>
+<li><strong>校验和</strong>： TCP将保持它首部和数据的校验和，这是一个端到端的校验和，目的是检测数据在传输过程种的变化。如果收到的校验和有差错，TCP将会丢弃和不确认接受这个给报文段。</li>
+<li>TCP会丢弃重复的数据  </li>
+<li><strong>流量控制</strong>： TCP的发送发和接收方都设置有固定大小的缓冲区域，TCP的接收端只允许发送端发送接收缓冲区能够容纳的数据，当接收方来不及处理接收到的数据时，会通知发送方降低发送速率，防止包丢失。（<strong>TCP使用滑动窗口实现流量控制</strong>）</li>
+<li><strong>拥塞控制</strong>: 当网络拥塞的时候减少数据的发送。</li>
+<li><strong>停止等待协议</strong>: 为了实现可靠传输，基本原理就是每发完一个分组就停止发送，等待接收方确认消息，在收到确认之后再发下一个分组。<strong>超时重传</strong>： 当TCP发送一个包之后，启动一个定时器，如果不能及时收到回复的话，重新发送。</li>
+</ol>
+<hr>
+<h1 id="停止等待协议"><a href="#停止等待协议" class="headerlink" title="停止等待协议"></a>停止等待协议</h1><ul>
+<li>停止等待协议是<strong>为了实现可靠传输</strong>的，它的基本原理就是<strong>发完一个分组就等待接收方发回确认消息，在确认收到的情况下，再继续发送下一个分组</strong>。</li>
+</ul>
+<h4 id="1-无差错情况"><a href="#1-无差错情况" class="headerlink" title="1. 无差错情况"></a>1. 无差错情况</h4><pre><code>    1. A发送分组M1
+    2. B确认收到分组M1,向A发送确认信息
+    3. A接收到B发送的确认信息，继续发送分组M2
+    4. 依次类推
+</code></pre><h4 id="2-出现差错"><a href="#2-出现差错" class="headerlink" title="2. 出现差错"></a>2. 出现差错</h4><pre><code>    1. A发送分组M1
+    2. B接收到分组M1,发现错误，什么也不做，直接丢弃分组M1
+    3. A这个时候超过一定的时间没有收到确认，认为刚才发送的分组丢失，重传刚才发送的分组（**超时重传**）
+</code></pre><blockquote>
+<p>注意事项：</p>
+<ol>
+<li>A在发送一个分组之后必须要<strong>暂时保留已经发送的分组的副本</strong></li>
+<li>分组和确认分组必须进行<strong>编号</strong></li>
+<li>超时计时器设置的重传时间必须<strong>设置的比数据在分组传输中的平均往返时间更长一点</strong></li>
+</ol>
+</blockquote>
+<h4 id="3-确认丢失"><a href="#3-确认丢失" class="headerlink" title="3.确认丢失"></a>3.确认丢失</h4><pre><code>    1. A发送了分组M1
+    2. B接收到了分组M1，并发回M1的确认
+    3. A超时重传M1
+    4. B收到了重传的M1，**丢弃当前的分组**，不向上级交付。同时**向A发送确认**
+</code></pre><h4 id="4-确认迟到"><a href="#4-确认迟到" class="headerlink" title="4.确认迟到"></a>4.确认迟到</h4><pre><code>    1. A发送了分组M1
+    2. B收到了分组M1，并发回M1的确认
+    3. B的确认在网络中阻塞，没有及时地送回A
+    4. A超时重传
+    5. B接收到了重新发送的分组M1和确认丢失一样，立即丢弃当前分组，同时回传确认
+    6. A收到了B发挥的确认，继续发送下一个分组
+    7. A收到了前一次迟到的确认，并且**立即丢弃**
+</code></pre><p><strong>上述的可靠传输协议成为自动重传请求ARP</strong></p>
+<h4 id="5-连续ARQ协议"><a href="#5-连续ARQ协议" class="headerlink" title="5.连续ARQ协议"></a>5.连续ARQ协议</h4><p>由于ARQ的<strong>信道利用率太低</strong>，因此使用连续ARQ协议，实现是<strong>滑动窗口</strong>。<br>发送方维持一个<strong>发送窗口</strong>，位于发送窗口中的所有分组都可以连续发送出去，不必要等待确认的传回。这样信道利用率就上去了。<br><strong>连续ARQ协议规定，发送方每收到一个确认就把发送窗口向前滑动一个分组的位置，接受党一般采取累计确认的方式：接受方不必对收到的分组逐个发送确认，而是接收几个分组之后，对按序到达的最后一个分组发送请求，说明到这个分组为止的所有分组已经正确接收</strong></p>
+<hr>
+<h1 id="网络状态码"><a href="#网络状态码" class="headerlink" title="网络状态码"></a>网络状态码</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类别</th>
+<th>原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1XX</td>
+<td>Informational 信息性状态码</td>
+<td>接受的请求正在处理</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>success 成功状态码</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>redirection 重定向状态码</td>
+<td>需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>Client Error 客户端错误状态码</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>Server Error 服务器错误状态码</td>
+<td>服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="常用端口号"><a href="#常用端口号" class="headerlink" title="常用端口号"></a>常用端口号</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>应用程序</th>
+<th>FTP*</th>
+<th>TELNET*</th>
+<th>SMTP*</th>
+<th>DNS</th>
+<th>TFTP</th>
+<th>HTTP*</th>
+<th>SNMP</th>
+<th>SNMP(trap)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>端口号</td>
+<td><strong>21</strong></td>
+<td><strong>23</strong></td>
+<td><strong>25</strong></td>
+<td><strong>53</strong></td>
+<td>69</td>
+<td><strong>80</strong></td>
+<td>161</td>
+<td>162</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="服务端使用的端口号"><a href="#服务端使用的端口号" class="headerlink" title="服务端使用的端口号"></a><strong>服务端使用的端口号</strong></h6><p>系统端口号： 0~1024<br>登记端口号：1024~49151</p>
+<h6 id="客户端使用的端口号"><a href="#客户端使用的端口号" class="headerlink" title="客户端使用的端口号"></a><strong>客户端使用的端口号</strong></h6><p>客户端使用的端口号： 49152~65535  </p>
+<hr>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/08/21/集成学习/" title= "集成学习">
+                    <div class="nextTitle">集成学习</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/08/20/复习1/" title= "复习1">
+                    <div class="prevTitle">复习1</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:xuleyan2011@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/aaa2359369" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OSI与TCP-IP各层的结构与功能-都有哪些协议"><span class="toc-number">1.</span> <span class="toc-text">OSI与TCP/IP各层的结构与功能,都有哪些协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#五层协议的体系结构"><span class="toc-number">1.0.1.</span> <span class="toc-text">五层协议的体系结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络体系结构和协议"><span class="toc-number">1.1.</span> <span class="toc-text">网络体系结构和协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-应用层"><span class="toc-number">1.1.1.</span> <span class="toc-text">1 应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-运输层"><span class="toc-number">1.1.2.</span> <span class="toc-text">2 运输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-网络层"><span class="toc-number">1.1.3.</span> <span class="toc-text">3 网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-数据链路层"><span class="toc-number">1.1.4.</span> <span class="toc-text">4 数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-物理层"><span class="toc-number">1.1.5.</span> <span class="toc-text">5 物理层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP三次握手和四次挥手"><span class="toc-number">2.</span> <span class="toc-text">TCP三次握手和四次挥手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP的三次握手"><span class="toc-number">2.0.1.</span> <span class="toc-text">TCP的三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP的四次挥手"><span class="toc-number">2.0.2.</span> <span class="toc-text">TCP的四次挥手</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP和UDP的区别"><span class="toc-number">3.</span> <span class="toc-text">TCP和UDP的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP协议如何保证可靠传输"><span class="toc-number">4.</span> <span class="toc-text">TCP协议如何保证可靠传输</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#停止等待协议"><span class="toc-number">5.</span> <span class="toc-text">停止等待协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-无差错情况"><span class="toc-number">5.0.0.1.</span> <span class="toc-text">1. 无差错情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-出现差错"><span class="toc-number">5.0.0.2.</span> <span class="toc-text">2. 出现差错</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-确认丢失"><span class="toc-number">5.0.0.3.</span> <span class="toc-text">3.确认丢失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-确认迟到"><span class="toc-number">5.0.0.4.</span> <span class="toc-text">4.确认迟到</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-连续ARQ协议"><span class="toc-number">5.0.0.5.</span> <span class="toc-text">5.连续ARQ协议</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络状态码"><span class="toc-number">6.</span> <span class="toc-text">网络状态码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用端口号"><span class="toc-number">7.</span> <span class="toc-text">常用端口号</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#服务端使用的端口号"><span class="toc-number">7.0.0.0.0.1.</span> <span class="toc-text">服务端使用的端口号</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#客户端使用的端口号"><span class="toc-number">7.0.0.0.0.2.</span> <span class="toc-text">客户端使用的端口号</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 6
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/强化学习复习01/" >强化学习复习01</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/一些问题/" >一些问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/集成学习/" >集成学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href= "/2019/08/20/网络/" >网络</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href= "/2019/08/20/复习1/" >复习1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/11</span><a class="archive-post-title" href= "/2019/08/11/快速幂/" >快速幂</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="编程题"><span class="iconfont-archer">&#xe606;</span>编程题</span>
+    
+        <span class="sidebar-tag-name" data-tags="强化学习"><span class="iconfont-archer">&#xe606;</span>强化学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="机器学习"><span class="iconfont-archer">&#xe606;</span>机器学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "轰炸大西瓜"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
+
+

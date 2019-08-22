@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>快速幂 · null</title>
+    <title>一些问题 · null</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Bombing Big Watermelon</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">快速幂</a>
+                <a href="#" class="post-name">一些问题</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            快速幂
+            一些问题
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "编程题">编程题</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "机器学习">机器学习</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">146</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.4k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/08/11</span>
+                    <span class="post-intro-time">2019/08/21</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,8 +401,63 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><p>比如2的11次方可以算作 2^(1011) = 2^(8)<em>2^(2)</em>2^(1)<br>用一个临时变量存储当前的结果，每当遇到指数当前位为1的情况就和当前的2^(k)相乘，最后返回结果<br>k用另外一个临时变量保存，每次和他自己相乘</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def Power(self, base, exponent):</span><br><span class="line">        if exponent == 0:</span><br><span class="line">            return 1</span><br><span class="line">        </span><br><span class="line">        exp = exponent    #辅助变量</span><br><span class="line">        result = 1</span><br><span class="line">        temp = base</span><br><span class="line">        if exp &lt; 0:</span><br><span class="line">            if base == 0:</span><br><span class="line">                raise RuntimeError(&apos;valueError&apos;)</span><br><span class="line">            exp = - exp</span><br><span class="line">        </span><br><span class="line">        while exp != 0:</span><br><span class="line">            if exp &amp; 1 == 1:</span><br><span class="line">                result *= temp</span><br><span class="line">            temp *= temp</span><br><span class="line">            exp = exp &gt;&gt; 1</span><br><span class="line">            </span><br><span class="line">        if exponent &lt; 0:</span><br><span class="line">            return 1/result</span><br><span class="line">        </span><br><span class="line">        else:</span><br><span class="line">            return result</span><br></pre></td></tr></table></figure>
+        <h3 id="1-线性回归的若干描述"><a href="#1-线性回归的若干描述" class="headerlink" title="1. 线性回归的若干描述"></a>1. 线性回归的若干描述</h3><blockquote>
+<p>问题：关于线性回归的描述,以下正确的有:(B C E)<br>A. 基本假设包括随机干扰项是均值为0,方差为1的标准正态分布<br>B. 基本假设包括随机干扰项是均值为0的同方差正态分布<br>C. 在违背基本假设时,普通最小二乘法估计量不再是最佳线性无偏估计量<br>D. 在违背基本假设时,模型不再可以估计<br>E. 可以用DW检验残差是否存在序列相关性<br>F. 多重共线性会使得参数估计值方差减小</p>
+</blockquote>
+<p>一元线性回归的基本假设：</p>
+<ol>
+<li><strong>随机误差项是一个期望值或平均值为0的随机变量</strong></li>
+<li>对于解释变量的所有观测值，<strong>随机误差项有相同的方差</strong></li>
+<li><strong>随机误差项服从正态分布</strong></li>
+<li>随机误差项彼此不相关</li>
+<li>解释变量是确定性变量，不是随机变量，与随机误差项之间彼此独立</li>
+<li>解释变量之间不存在精确的（完全的）线性关系，即解释变量的样本观测值矩阵是满秩矩阵</li>
+</ol>
+<blockquote>
+<p>随机干扰项是均值为0的同方差正态分布</p>
+</blockquote>
+<p>当存在异方差（违背了基本假设）时，OLS（普通最小二乘法）有如下的问题：<strong>参数估计值时无偏的，但是不是最小方差线性无偏估计</strong></p>
+<blockquote>
+<p>在违背基本假设时,普通最小二乘法估计量不再是最佳线性无偏估计量</p>
+<p>DW检验，一种统计分析中常用的的<strong>检验序列一阶自相关</strong>最常用的方法</p>
+</blockquote>
+<p>所谓多重共线性是指线性回归模型中的解释白能量之间存在精确的相关关系或高度相关关系从而使模型估计失真。</p>
+<blockquote>
+<p>多重共线性使参数估计值的方差增大</p>
+</blockquote>
+<hr>
+<h3 id="2-参数估计方法"><a href="#2-参数估计方法" class="headerlink" title="2. 参数估计方法"></a>2. 参数估计方法</h3><ol>
+<li>MLE</li>
+<li>MAP</li>
+<li>Bayesian Estimation</li>
+</ol>
+<blockquote>
+<p>概率是已知模型和参数，推数据。<br>统计时已知数据，推模型和参数</p>
+</blockquote>
+<p>贝叶斯公式：$p(\theta|X) = \cfrac{p(X|\theta)*p(\theta)}{p(X)}$</p>
+<p>这个公式也叫做逆概率公式，可以将后验概率转换为基于似然函数和先验概率的计算表达形式：$posterior = \cfrac{likelihood*prior}{evidence}$</p>
+<hr>
+<h4 id="MLE-极大似然估计"><a href="#MLE-极大似然估计" class="headerlink" title="MLE 极大似然估计"></a>MLE 极大似然估计</h4><p><strong>MLE使用似然函数取到最大值时候的参数值作为估计值</strong>，似然函数可以写成：$L(\theta|X) = p(X|\theta) = \prod p(X=x|\theta) $</p>
+<blockquote>
+<p>最大似然估计等价于最小化训练集上的经验分布和模型分布之间的差异，即最小化这两个分布的交叉熵。</p>
+</blockquote>
+<hr>
+<h4 id="MAP-最大后验概率"><a href="#MAP-最大后验概率" class="headerlink" title="MAP 最大后验概率"></a>MAP 最大后验概率</h4><p>最大后验概率和最大似然估计相似，不同的地方在于<strong>估计$\theta$的函数加入先验$p(\theta)$</strong>,也就是说，这个时候要求的不是似然函数最大，而是要求整个后验概率最大（evidence不会发生变化，所以后验和似然乘以先验的结果成正比）。</p>
+<blockquote>
+<p>MAP假定参数$\theta$服从某一种分布，并不是固定的值，但最后估计出来的参数仍然是一个确定的值</p>
+</blockquote>
+<p>$\hat{\theta}<em>{MAP} =  argmax</em>{\theta} \cfrac{p(X|\theta)p(\theta)}{p(X)} = argmax_{\theta}p(X|\theta)p(\theta)$</p>
+<hr>
+<h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><p>贝叶斯时最大后验概率的扩展，和MAP一样，贝叶斯估计也<strong>不认为参数是固定的，而是服从某一个先验分布</strong>，但是MAP是直接估计出$\theta$的值，而贝叶斯估计是<strong>估计出参数的分布</strong>，这就是贝叶斯和MLE以及MAP的最大不同。</p>
+<hr>
+<h4 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h4><p>神经网络训练过程的本质是学习数据分布，如果训练数据和测试数据的分布不同将大大降低网络的泛化能力，因此我们需要在训练开始之前对所有的输入数据进行归一化处理。<br>然而随着网络训练的进行，每一个隐层的参数变化使得后一层的输入也发生变化，从而使每一批训练数据的分布也随着改变，致使网络在每一次迭代的过程中都需要拟合不同的数据分布，增大训练的复杂度以及过拟合的风险。<br>BN是针对每一批次的数据，在网络的每一层输入之前增加归一化处理(均值为0，方差为1)，将所有批数据强制在统一的数据分布下即对该层的任意一个神经元$\hat{x}^{(k)}$采用</p>
+<script type="math/tex; mode=display">\hat{x}^{(k)} = \cfrac{  x^{(k)} - E[x^{(k)}]  }{\sqrt{ Var[x^{(k)}] }}</script><p>其中$x^{(k)}$为该层第k个神经元的原始输入,$E[x^{(k)}]$为该层这一批次数据的均值，$\sqrt{ Var[x^{(k)}]}$为这一批数据在第k个神经元的标准差。<br>BN可以看作是每一层输入和上一层的输出中新加入了一个新的计算层，对数据的分布进行额外的约束，从而<strong>增强模型的泛化能力</strong>。但是同时，BN也<strong>降低了模型的拟合能力</strong>，归一化之后的输入分布被强制为0均值和1标准差。以Sigmoid为例，BN之后数据整体处于函数的非饱和区域，只包含线性变换，<strong>破坏了以前学习到的特征分布</strong>。</p>
+<hr>
+<h4 id="卷积和池化之后的图像大小计算"><a href="#卷积和池化之后的图像大小计算" class="headerlink" title="卷积和池化之后的图像大小计算"></a>卷积和池化之后的图像大小计算</h4><script type="math/tex; mode=display">(input\_size + 2*padding - kernel\_size)/stride + 1 = output\_size</script><p>卷积向下取整、池化向上取整</p>
+<blockquote>
+<p>stride为1<br>kernel为3 padding为1<br>kernel为5 padding为3<br>卷积前后大小不变</p>
+</blockquote>
+
     </article>
     <!-- license  -->
     
@@ -411,12 +466,17 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/08/20/复习1/" title= "复习1">
-                    <div class="nextTitle">复习1</div>
+                <a href= "/2019/08/21/强化学习复习01/" title= "强化学习复习01">
+                    <div class="nextTitle">强化学习复习01</div>
                 </a>
             
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/08/21/集成学习/" title= "集成学习">
+                    <div class="prevTitle">集成学习</div>
+                </a>
             
         </li>
     </ul>
@@ -527,7 +587,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速幂"><span class="toc-number">1.</span> <span class="toc-text">快速幂</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性回归的若干描述"><span class="toc-number">1.</span> <span class="toc-text">1. 线性回归的若干描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-参数估计方法"><span class="toc-number">2.</span> <span class="toc-text">2. 参数估计方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MLE-极大似然估计"><span class="toc-number">2.1.</span> <span class="toc-text">MLE 极大似然估计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MAP-最大后验概率"><span class="toc-number">2.2.</span> <span class="toc-text">MAP 最大后验概率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#贝叶斯估计"><span class="toc-number">2.3.</span> <span class="toc-text">贝叶斯估计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Batch-Normalization"><span class="toc-number">2.4.</span> <span class="toc-text">Batch Normalization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#卷积和池化之后的图像大小计算"><span class="toc-number">2.5.</span> <span class="toc-text">卷积和池化之后的图像大小计算</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>快速幂 · null</title>
+    <title>强化学习复习01 · null</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Bombing Big Watermelon</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">快速幂</a>
+                <a href="#" class="post-name">强化学习复习01</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            快速幂
+            强化学习复习01
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "编程题">编程题</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "强化学习">强化学习</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">146</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.4k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/08/11</span>
+                    <span class="post-intro-time">2019/08/21</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,8 +401,82 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><p>比如2的11次方可以算作 2^(1011) = 2^(8)<em>2^(2)</em>2^(1)<br>用一个临时变量存储当前的结果，每当遇到指数当前位为1的情况就和当前的2^(k)相乘，最后返回结果<br>k用另外一个临时变量保存，每次和他自己相乘</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def Power(self, base, exponent):</span><br><span class="line">        if exponent == 0:</span><br><span class="line">            return 1</span><br><span class="line">        </span><br><span class="line">        exp = exponent    #辅助变量</span><br><span class="line">        result = 1</span><br><span class="line">        temp = base</span><br><span class="line">        if exp &lt; 0:</span><br><span class="line">            if base == 0:</span><br><span class="line">                raise RuntimeError(&apos;valueError&apos;)</span><br><span class="line">            exp = - exp</span><br><span class="line">        </span><br><span class="line">        while exp != 0:</span><br><span class="line">            if exp &amp; 1 == 1:</span><br><span class="line">                result *= temp</span><br><span class="line">            temp *= temp</span><br><span class="line">            exp = exp &gt;&gt; 1</span><br><span class="line">            </span><br><span class="line">        if exponent &lt; 0:</span><br><span class="line">            return 1/result</span><br><span class="line">        </span><br><span class="line">        else:</span><br><span class="line">            return result</span><br></pre></td></tr></table></figure>
+        <h3 id="1-举出强化学习与有监督学习的异同点。有监督学习靠样本标签训练模型，强化学习靠的是什么？"><a href="#1-举出强化学习与有监督学习的异同点。有监督学习靠样本标签训练模型，强化学习靠的是什么？" class="headerlink" title="1.举出强化学习与有监督学习的异同点。有监督学习靠样本标签训练模型，强化学习靠的是什么？"></a>1.举出强化学习与有监督学习的异同点。有监督学习靠样本标签训练模型，强化学习靠的是什么？</h3><p>在监督学习和无监督学习中，数据都是静止的、不需要和环境进行互动，只要给定了一定量的样本，那么就能够对其进行学习。而强化学习中，agent需要和环境不断互动来获取数据，数据是动态的。</p>
+<hr>
+<h3 id="2-强化学习解决的是什么样的问题？"><a href="#2-强化学习解决的是什么样的问题？" class="headerlink" title="2.强化学习解决的是什么样的问题？"></a>2.强化学习解决的是什么样的问题？</h3><p>序列决策问题</p>
+<hr>
+<h3 id="3-多臂老虎机只有一个序列，为什么也是MDP过程"><a href="#3-多臂老虎机只有一个序列，为什么也是MDP过程" class="headerlink" title="3.多臂老虎机只有一个序列，为什么也是MDP过程"></a>3.多臂老虎机只有一个序列，为什么也是MDP过程</h3><p>多臂老虎机其实可以看作一种特殊的强化学习问题：序列长度一直为1的强化学习。它在强化学习关键的三要素（状态，动作，奖惩）中，没有状态一项，也可以说，它当前的动作不会改变环境状态，亦或者说它的最优动作是全局的，只要找到了这个动作，那一直采取这个动作就可以保证最大的累计回报。</p>
+<hr>
+<h3 id="4-强化学习的损失函数是什么"><a href="#4-强化学习的损失函数是什么" class="headerlink" title="4.强化学习的损失函数是什么"></a>4.强化学习的损失函数是什么</h3><script type="math/tex; mode=display">max \int{p(\tau)R(\tau)}=min\quad -\int p(\tau)R(\tau)</script><p>也就是最大化累计折扣奖励</p>
+<hr>
+<h3 id="5-POMDP是什么？"><a href="#5-POMDP是什么？" class="headerlink" title="5.POMDP是什么？"></a>5.POMDP是什么？</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>考虑动作</th>
+<th>不考虑动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>状态完全可见</td>
+<td>MDP</td>
+<td>MC</td>
+</tr>
+<tr>
+<td>状态不完全可见</td>
+<td>POMDP</td>
+<td>HMM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>由此可见就是状态不完全可见的马尔可夫决策过程。</p>
+<blockquote>
+<p>部分观测马尔可夫决策过程(POMDP)就是MDP和HMM结合的产物。在POMDP中，agent不能够直接观测到当前的状态。但是在每一个时刻中，agent能够得到状态的观测值。agent根据这些观测值去思考当前的状态到底是什么（the agent uses these observations to form a belief of in what state the system currently is.）而猜测的状态是一种概率分布(this belief is called a belief state and is expressed as a probability distribution over the states).POMDP的目标就是去找到基于这些猜测状态的最优策略（the solution of the POMDP is a policy prescribing which action is optimal for each belief state）。</p>
+</blockquote>
+<p>一个POMDP可以由一个7元组描述：</p>
+<ol>
+<li>$S$:是一个有限状态的集合</li>
+<li>$A$:是有限动作的集合</li>
+<li>$P$:是状态转移矩阵,每一个元素是$p_{ss’}^{a}$:在状态$s$时执行动作$a$之后转移到$s’$的概率</li>
+<li>$R:S \times A \to \mathbb{R}$是奖励函数</li>
+<li>$\Omega$:是观测值的集合</li>
+<li>$O$:是执行了动作$a$,进入到下一个状态$s’$得到的观察值$o$的概率$O(o|s’, a)$</li>
+<li>$\lambda$: 折扣因子</li>
+</ol>
+<blockquote>
+<p>注意上面的O，是执行力动作、进入了<strong>下一个状态</strong>下观测到某个观测的概率.</p>
+</blockquote>
+<p>资料：<a href="https://zhuanlan.zhihu.com/p/24996278" title="吴恩达对于增强学习的形象论述（下）" target="_blank" rel="noopener">吴恩达对于增强学习的形象论述（下）</a></p>
+<hr>
+<h3 id="6-马尔科夫决策过程是什么？里面的“马尔科夫”体现了什么性质？马尔科夫过程是什么？"><a href="#6-马尔科夫决策过程是什么？里面的“马尔科夫”体现了什么性质？马尔科夫过程是什么？" class="headerlink" title="6.马尔科夫决策过程是什么？里面的“马尔科夫”体现了什么性质？马尔科夫过程是什么？"></a>6.马尔科夫决策过程是什么？里面的“马尔科夫”体现了什么性质？马尔科夫过程是什么？</h3><p><strong>马尔可夫决策过程</strong>就是可以被描述成一个5元组$(S,A,R,P,\gamma)$，分别是有限的状态集合、有限的动作集合、奖励函数、状态转移矩阵、折扣因子（和上面的差不多）。<br><strong>马尔可夫性质</strong>即齐次马尔科夫性：</p>
+<script type="math/tex; mode=display">p(s_{t+1}|s_{t},s_{t-1},s_{t-2}.....) = p(s_{t+1}|s_{t})</script><p>也就是说下一个状态发生的概率只是和当前的状态相关，当前的状态包含了所有的历史信息。<br><strong>马尔可夫过程</strong>可以被描述成一个2元组$(S,P)$,也就是有限的状态集合、状态转移矩阵。</p>
+<hr>
+<h3 id="7-贝尔曼方程"><a href="#7-贝尔曼方程" class="headerlink" title="7.贝尔曼方程"></a>7.贝尔曼方程</h3><hr>
+<h3 id="8-最优值函数和最优策略为什么等价？"><a href="#8-最优值函数和最优策略为什么等价？" class="headerlink" title="8.最优值函数和最优策略为什么等价？"></a>8.最优值函数和最优策略为什么等价？</h3><p>强化学习的目标可以大致上理解为：找到一个能够在长期运行的前提下<strong>获得尽可能最多奖励的的策略</strong>，<br>对于有限长的的MDP来说，最优策略可以如下定义：</p>
+<blockquote>
+<p>值函数定义了策略的偏序关系，一个策略$\pi$的好坏不低于另外的一个策略$\pi’$的定义是其期望累计奖励大于等于另外一个策略的期望累计奖励。</p>
+<script type="math/tex; mode=display">\pi \geqslant \pi'</script><p>只有当</p>
+<script type="math/tex; mode=display">v_{\pi} \geqslant v_{\pi'} \quad for\ all\ s\ in\ S</script><p>的时候才成立 。<br>也就是说，至少存在一个策略优于或者是等于剩下的策略。这就是<strong>最佳策略optimal policy</strong>。虽然有很多个这样的策略，但是都可以表示成$\pi<em><em>$。他们均共享同样的状态值函数，也就是最优值函数<em>*optimal state value function</em></em>,表示为$v</em>{\pi}$<br>总的来说，最优策略是依赖于最优值函数的。最优策略可以从最优值函数获取。</p>
+</blockquote>
+<hr>
+<h3 id="9-如果不满足马尔科夫性怎么办？当前时刻的状态和它之前很多很多个状态都有关。"><a href="#9-如果不满足马尔科夫性怎么办？当前时刻的状态和它之前很多很多个状态都有关。" class="headerlink" title="9.如果不满足马尔科夫性怎么办？当前时刻的状态和它之前很多很多个状态都有关。"></a>9.如果不满足马尔科夫性怎么办？当前时刻的状态和它之前很多很多个状态都有关。</h3><p>引入RNN，没看</p>
+<hr>
+<h3 id="10-求解马尔科夫决策过程都有哪些方法？有模型用什么方法？动态规划是怎么回事？"><a href="#10-求解马尔科夫决策过程都有哪些方法？有模型用什么方法？动态规划是怎么回事？" class="headerlink" title="10.求解马尔科夫决策过程都有哪些方法？有模型用什么方法？动态规划是怎么回事？"></a>10.求解马尔科夫决策过程都有哪些方法？有模型用什么方法？动态规划是怎么回事？</h3><p>解决MDP问题主要有3个方法</p>
+<ol>
+<li>动态规划 Dynamic Programming</li>
+<li>基于值函数的方法 Value Based Method</li>
+<li>基于策略的方法 Policy Based Method</li>
+</ol>
+<p>当有模型的时候使用动态规划的方法（model-based）。</p>
+<h4 id="10-1强化学习中的动态规划"><a href="#10-1强化学习中的动态规划" class="headerlink" title="10.1强化学习中的动态规划"></a>10.1强化学习中的动态规划</h4><p>当已经知道完全的MDP，也就是5元组$(S,A,R,P,\gamma)$。而当5元组全部知道后，可以采用策略迭代Policy Iteration和值迭代Value Iteration来求解MDP过程。<br>利用动态规划求解问题的前提是：</p>
+<ul>
+<li>整个优化问题可以被分解为多个子问题</li>
+<li>子问题的最优解可以被存储和重复使用</li>
+</ul>
+
     </article>
     <!-- license  -->
     
@@ -410,13 +484,13 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/08/20/复习1/" title= "复习1">
-                    <div class="nextTitle">复习1</div>
-                </a>
-            
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/08/21/一些问题/" title= "一些问题">
+                    <div class="prevTitle">一些问题</div>
+                </a>
             
         </li>
     </ul>
@@ -527,7 +601,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速幂"><span class="toc-number">1.</span> <span class="toc-text">快速幂</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-举出强化学习与有监督学习的异同点。有监督学习靠样本标签训练模型，强化学习靠的是什么？"><span class="toc-number">1.</span> <span class="toc-text">1.举出强化学习与有监督学习的异同点。有监督学习靠样本标签训练模型，强化学习靠的是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-强化学习解决的是什么样的问题？"><span class="toc-number">2.</span> <span class="toc-text">2.强化学习解决的是什么样的问题？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-多臂老虎机只有一个序列，为什么也是MDP过程"><span class="toc-number">3.</span> <span class="toc-text">3.多臂老虎机只有一个序列，为什么也是MDP过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-强化学习的损失函数是什么"><span class="toc-number">4.</span> <span class="toc-text">4.强化学习的损失函数是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-POMDP是什么？"><span class="toc-number">5.</span> <span class="toc-text">5.POMDP是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-马尔科夫决策过程是什么？里面的“马尔科夫”体现了什么性质？马尔科夫过程是什么？"><span class="toc-number">6.</span> <span class="toc-text">6.马尔科夫决策过程是什么？里面的“马尔科夫”体现了什么性质？马尔科夫过程是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-贝尔曼方程"><span class="toc-number">7.</span> <span class="toc-text">7.贝尔曼方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-最优值函数和最优策略为什么等价？"><span class="toc-number">8.</span> <span class="toc-text">8.最优值函数和最优策略为什么等价？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-如果不满足马尔科夫性怎么办？当前时刻的状态和它之前很多很多个状态都有关。"><span class="toc-number">9.</span> <span class="toc-text">9.如果不满足马尔科夫性怎么办？当前时刻的状态和它之前很多很多个状态都有关。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-求解马尔科夫决策过程都有哪些方法？有模型用什么方法？动态规划是怎么回事？"><span class="toc-number">10.</span> <span class="toc-text">10.求解马尔科夫决策过程都有哪些方法？有模型用什么方法？动态规划是怎么回事？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1强化学习中的动态规划"><span class="toc-number">10.1.</span> <span class="toc-text">10.1强化学习中的动态规划</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
