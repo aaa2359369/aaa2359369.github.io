@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">393</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">242</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,23 +401,19 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="1-集成学习中的方差和偏差"><a href="#1-集成学习中的方差和偏差" class="headerlink" title="1. 集成学习中的方差和偏差"></a>1. 集成学习中的方差和偏差</h3><p>集成学习利用多个基分类器组合形成一个总分类器，能够达到单个基分类器达不到的效果。</p>
-<ul>
-<li>平均方法： 例如<strong>随机森林</strong>、<strong>Bagging</strong>。在平均方法中，系统同时训练多个基分类器，分类器之间没有联系。在分类或者是回归时，结果根据各个分类器的结果去综合出最后的结果，比如投票。</li>
-<li>提升方法： 例如<strong>GDBT</strong>、<strong>Adaboost</strong>，每个分类器由前一个得到，通过组合的形式得到最终的分类器。</li>
-</ul>
-<p><strong>平均方法： 尝试去降低方差</strong><br><strong>提升方法： 尝试去降低偏差</strong></p>
-<p>如何去理解：</p>
-<blockquote>
-<p>boosting算法的基本上就是在去优化loss function，而优化loss function的过程就是降低bias，这使得variance升高。<br>bagging算法之所以进行bagging，就是希望模型具有更好的鲁棒性，显然这就是减少variance，使得bias提升</p>
-</blockquote>
-<h3 id="2-为什么随机森林的数的深度往往大于GDBT树的深度？"><a href="#2-为什么随机森林的数的深度往往大于GDBT树的深度？" class="headerlink" title="2. 为什么随机森林的数的深度往往大于GDBT树的深度？"></a>2. 为什么随机森林的数的深度往往大于GDBT树的深度？</h3><p>随机森林属于bagging算法，而GDBT属于boosting算法。<br>由问题1可以得知：</p>
-<ol>
-<li>bagging算法的bias高，variance低。</li>
-<li>boosting算法的bias低， variance高。</li>
-</ol>
-<p>所以对于随机森林（以及更一般的bagging算法）来说，要使用更深的树，以便增强每个基学习器的学习能力（bias降低）。<br>同理对于GDBT（以及更一般的boosting算法）来说，要使用更浅的树，来保证variance的降低（模型复杂度降低，variance降低）。</p>
-
+        <div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="自用" />
+    <label for="pass">自用</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
     </article>
     <!-- license  -->
     
@@ -547,7 +543,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-集成学习中的方差和偏差"><span class="toc-number">1.</span> <span class="toc-text">1. 集成学习中的方差和偏差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-为什么随机森林的数的深度往往大于GDBT树的深度？"><span class="toc-number">2.</span> <span class="toc-text">2. 为什么随机森林的数的深度往往大于GDBT树的深度？</span></a></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -560,14 +556,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -671,11 +659,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="编程题"><span class="iconfont-archer">&#xe606;</span>编程题</span>
+        <span class="sidebar-tag-name" data-tags="机器学习"><span class="iconfont-archer">&#xe606;</span>机器学习</span>
     
         <span class="sidebar-tag-name" data-tags="强化学习"><span class="iconfont-archer">&#xe606;</span>强化学习</span>
     
-        <span class="sidebar-tag-name" data-tags="机器学习"><span class="iconfont-archer">&#xe606;</span>机器学习</span>
+        <span class="sidebar-tag-name" data-tags="编程题"><span class="iconfont-archer">&#xe606;</span>编程题</span>
     
         <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
     

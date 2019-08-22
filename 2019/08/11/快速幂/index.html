@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">146</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">261</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,8 +401,19 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><p>比如2的11次方可以算作 2^(1011) = 2^(8)<em>2^(2)</em>2^(1)<br>用一个临时变量存储当前的结果，每当遇到指数当前位为1的情况就和当前的2^(k)相乘，最后返回结果<br>k用另外一个临时变量保存，每次和他自己相乘</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def Power(self, base, exponent):</span><br><span class="line">        if exponent == 0:</span><br><span class="line">            return 1</span><br><span class="line">        </span><br><span class="line">        exp = exponent    #辅助变量</span><br><span class="line">        result = 1</span><br><span class="line">        temp = base</span><br><span class="line">        if exp &lt; 0:</span><br><span class="line">            if base == 0:</span><br><span class="line">                raise RuntimeError(&apos;valueError&apos;)</span><br><span class="line">            exp = - exp</span><br><span class="line">        </span><br><span class="line">        while exp != 0:</span><br><span class="line">            if exp &amp; 1 == 1:</span><br><span class="line">                result *= temp</span><br><span class="line">            temp *= temp</span><br><span class="line">            exp = exp &gt;&gt; 1</span><br><span class="line">            </span><br><span class="line">        if exponent &lt; 0:</span><br><span class="line">            return 1/result</span><br><span class="line">        </span><br><span class="line">        else:</span><br><span class="line">            return result</span><br></pre></td></tr></table></figure>
+        <div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="自用" />
+    <label for="pass">自用</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
     </article>
     <!-- license  -->
     
@@ -527,7 +538,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速幂"><span class="toc-number">1.</span> <span class="toc-text">快速幂</span></a></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -540,14 +551,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -651,11 +654,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="编程题"><span class="iconfont-archer">&#xe606;</span>编程题</span>
+        <span class="sidebar-tag-name" data-tags="机器学习"><span class="iconfont-archer">&#xe606;</span>机器学习</span>
     
         <span class="sidebar-tag-name" data-tags="强化学习"><span class="iconfont-archer">&#xe606;</span>强化学习</span>
     
-        <span class="sidebar-tag-name" data-tags="机器学习"><span class="iconfont-archer">&#xe606;</span>机器学习</span>
+        <span class="sidebar-tag-name" data-tags="编程题"><span class="iconfont-archer">&#xe606;</span>编程题</span>
     
         <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
     
